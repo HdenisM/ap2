@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Плакат</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/adaptives.css">
+    <style>
+/* "сетка" экрана */
+      .all{
+        display: block;
+        flex-direction: row;
+        width: 100%;
+        height: 2850px;
+        position: absolute;
+        background-color: rgb(28,28,28);
+      }
+/* стили строк */
+  /* стили строки с1 */
+      .c1hidden{
+        width: 100%;
+        height: 130px;
+        overflow: hidden;
+      }
+      .c1{
+        position: relative;
+        width: 20px;
+        height: 100%;
+        display: flex;
+        top: 10px;
+        font-family: 'Mewerek';
+        font-size: 100px;
+        color: white;
+        transition-property: all;
+        transition: all ease .6s;
+      }
+      .scroll1{
+        animation: scroll1 7s linear infinite;
+      }
+      .c1:hover {
+        animation-play-state: paused;
+        transform: translateX(30px);
+      }
+
+  /* стили строки с2 */
+      .c2hidden{
+        width: 100%;
+        height: 510px;
+        overflow: hidden;
+      }
+      .c2{
+        position: relative;
+        width: 20px;
+        height: 100%;
+        display: flex;
+        top: 335px;
+        font-family: 'Mewerek';
+        font-size: 100px;
+        color: white;
+        transition-property: all;
+        transition: all ease .6s;
+      }
+      .scroll2{
+        animation: scroll2 7s linear infinite;
+      }
+      .c2:hover {
+        animation-play-state: paused;
+        transform: translateX(-30px);
+      }
+  /* стили строки с3 */
+      .c3hidden{
+        width: 100%;
+        height: 460px;
+        overflow: hidden;
+      }
+      .c3{
+        position: relative;
+        width: 20px;
+        height: 100%;
+        display: flex;
+        top: 335px;
+        font-family: 'Mewerek';
+        font-size: 100px;
+        color: white;
+        transition-property: all;
+        transition: all ease .6s;
+      }
+      .scroll1{
+        animation: scroll1 7s linear infinite;
+      }
+      .c3:hover {
+        animation-play-state: paused;
+        transform: translateX(30px);
+      }
+  /* стили строки с4 */
+      .c4hidden{
+        width: 100%;
+        height: 510px;
+        overflow: hidden;
+      }
+      .c4{
+        position: relative;
+        width: 20px;
+        height: 100%;
+        display: flex;
+        top: 335px;
+        font-family: 'Mewerek';
+        font-size: 100px;
+        color: white;
+        transition-property: all;
+        transition: all ease .6s;
+      }
+      .scroll2{
+        animation: scroll2 7s linear infinite;
+      }
+      .c4:hover {
+        animation-play-state: paused;
+        transform: translateX(-30px);
+      }
+/* стили шаров */
+  /* стили синего шара (строка 1)*/
+      .b1 {
+        position: relative;
+        margin: 0 auto;
+        top: 180px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: rgb(00,183,255);
+      }
+  /* стили красного шара (строка 1)*/
+      .b2 {
+        position: relative;
+        margin: 0 auto;
+        top: -50px;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: rgb(244,55,69);
+      }
+      .b2orbita {
+        position: relative;
+        margin: 0 auto;
+        top: -75px;
+        right: 75px;
+        width: 350px;
+        height: 350px;
+        opacity: 0%;
+        transition: 0.5s;
+      }
+      .b2orbita:hover{
+        opacity: 100%;
+      }
+      .orbit {
+          animation: orbit 5s linear infinite;
+      }
+
+  /* стили шаров (строка 2)*/
+      .b3hidden{
+        position: relative;
+        top: 150px;
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+      }
+
+      .b3{
+        position: relative;
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: rgb(244,55,69);
+      }
+
+      .b3scroll{
+        animation: b3scroll 2s linear infinite;
+      }
+      .b3jump{
+        animation: b3jump 1s linear infinite;
+      }
+
+      .b4hidden{
+        position: relative;
+        top: 50px;
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+      }
+      .b4{
+        position: relative;
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: rgb(244,55,69);
+      }
+      .b4scroll{
+        animation: b4scroll 1s linear .5s infinite alternate ;
+      }
+      .b4jump{
+        animation: b4jump 2s linear infinite;
+      }
+
+      .b5hidden{
+        position: relative;
+        top: 50px;
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+      }
+      .b5{
+        position: relative;
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: rgb(244,55,69);
+      }
+      .b5scroll{
+        animation: b5scroll 3s linear 1s infinite;
+      }
+      .b5jump{
+        animation: b5jump .5s linear infinite;
+      }
+
+  /* невидимая нажимная пластина*/
+      .press{
+        position: absolute;
+        background-color: red ;
+        width: 100%;
+        height: 450px;
+        z-index: 1;
+      }
+      .pressapear{
+        animation: pressapear 2s linear infinite alternate;
+      }
+      .press:hover{
+        animation-play-state: paused;
+      }
+
+  /* стили шаров (строка 3)*/
+      .b6hidden{
+        position: relative;
+        top: 170px;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+      }
+      .b6{
+        position: relative;
+        top: 100px;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: rgb(00,183,255);
+      }
+      .b6scroll{
+        animation: b6scroll 10s linear infinite;
+      }
+      .b6:hover{
+        animation-play-state: paused;
+      }
+
+      .b7hidden{
+        position: relative;
+        top: 170px;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+      }
+      .b7{
+        position: relative;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: rgb(00,183,255);
+      }
+      .b7scale{
+        animation: b7scale 3s linear infinite;
+      }
+      .b7:hover{
+        animation-play-state: running;
+      }
+
+  /*подвал*/
+    /*подвал текст*/
+    .b22dz10{
+      position: relative;
+      margin-right: 0 auto;
+      top: 300px;
+      font-family: 'Qanelas';
+      font-size: 200%;
+      color: white;
+
+    }
+    .name{
+      position: relative;
+      margin-right: 0 auto;
+      top: 300px;
+      font-family: 'Qanelas';
+      font-size: 200%;
+      color: white;
+
+    }
+    /*подвал элементы*/
+    .b8 {
+      position: relative;
+      margin: 0 auto;
+      top: -50px;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background-color: rgb(244,55,69);
+    }
+    .b8orbitahidden{
+      position: relative;
+      width: 100%;
+      height: 14.9%;
+      overflow: hidden;
+    }
+    .b8orbita {
+      position: relative;
+      margin-left: 0 auto;
+      top: 200px;
+      right: 75px;
+      width: 350px;
+      height: 350px;
+      opacity: 0%;
+      transition: 0.5s;
+    }
+    .b8orbita:hover{
+      opacity: 100%;
+    }
+    .orbit {
+        animation: orbit 3s linear infinite;
+    }
+    .logo{
+      position: relative;
+      width: 10px;
+      height: 10px;
+      top: -110px;
+      margin-right: 100%;
+    }
+/* анимация */
+  /* анимация колонны с1 и с3   */
+      @keyframes scroll1 {
+        0% {right: 0px;}
+        100% {right:  2190px;}
+      }
+  /* анимация колонны с2 и с4 */
+      @keyframes scroll2 {
+        0% {left: -2190px;}
+        100% {left: 0px;}
+      }
+  /* анимация красного шара (строка 1)*/
+      @keyframes orbit {
+        100% {
+          rotate: 360deg;}
+      }
+
+  /* анимация красного шара (строка 2)*/
+    @keyframes b3scroll {
+      0% {right:-1000px;}
+      100% {right: 1000px;}
+    }
+    @keyframes b3jump {
+      0% {top: 0px;}
+      50% {top: 400px;}
+      100% {top: 0px;}
+    }
+
+
+    @keyframes b4scroll {
+      0% {right: -1000px;}
+      100% {right: 1000px;}
+    }
+    @keyframes b4jump {
+      0% {top: 150px;}
+      50% {top: 150px;}
+      100% {top: 150px;}
+    }
+
+
+    @keyframes b5scroll {
+      0% {left: -1000px;}
+      100% {left: 1000px;}
+    }
+    @keyframes b5jump {
+      0% {top: -100px;}
+      50% {top: 300px;}
+      100% {top: -100px;}
+    }
+    @keyframes pressapear {
+      0% {background-color: rgb(28,28,28); opacity: .0}
+      20% {background-color: rgb(28,28,28); opacity: .0}
+      80% {background-color: rgb(28,28,28); opacity: 1}
+      100% {background-color: rgb(28,28,28); opacity: 1}
+    }
+    @keyframes b6scroll{
+      0% {left: -1000px;}
+      100% {left: 1000px;}
+    }
+    @keyframes b7scale {
+      0% {transform: scale(100%);}
+      50% {transform: scale(200%);}
+      100% {transform: scale(100%);}
+    }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="all">
+
+      <!-- строка символов 1-->
+      <div class="c1hidden">
+        <div class="c1 scroll1">
+          BDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSA
+        </div>
+      </div>
+
+      <!-- шары (строка 1) -->
+      <div class="b1">
+        <div class="b2orbita  orbit">  <div class="b2"></div> </div>
+      </div>
+
+      <!-- строка символов 2-->
+      <div class="c2hidden">
+        <div class="c2 scroll2">
+          BDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSA
+        </div>
+      </div>
+
+      <div class="press pressapear"></div>
+
+      <!-- шары (строка 2) -->
+      <div class="b3hidden b3jump">
+        <div class="b3 b3scroll"></div>
+      </div>
+      <div class="b4hidden b4jump">
+        <div class="b4 b4scroll"></div>
+      </div>
+      <div class="b5hidden b5jump">
+        <div class="b5 b5scroll"></div>
+      </div>
+
+
+      <!-- строка символов 3-->
+      <div class="c3hidden">
+        <div class="c3 scroll1">
+          BDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSA
+        </div>
+      </div>
+
+      <!-- шар (строка 3) -->
+      <div class="b6hidden">
+        <div class="b6 b6scroll"> <div class="b7 b7scale"> </div> </div>
+      </div>
+
+      <!-- строка символов 4-->
+      <div class="c4hidden">
+        <div class="c4 scroll2">
+          BDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSABDCEQFLAHJKSA
+        </div>
+      </div>
+
+      <div class="b22dz10">
+        Б22ДЗ10
+      </div>
+      <div class="name">
+        Мартиновс Денисс
+      </div>
+
+      <div class="b8orbitahidden">
+        <div class="b8orbita  orbit">  <div class="b8"></div> </div>
+      </div>
+      <div class="logo">
+        <img src="images/logo.svg" alt="" height="100px">
+      </div>
+    </div>
+  </body>
+</html>
