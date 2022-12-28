@@ -3,7 +3,7 @@
 /* мой "инопланетный" шрифт для колонны символов слева страницы - Mewerek */
   @font-face {
     font-family: 'Mewerek';
-    src: url('../fonts/Mewerek.otf') format("otf"),
+    src: url('../fonts/font/Mewerek.otf') format("otf"),
   }
 
 /* все стили шрифта Qanelas */
